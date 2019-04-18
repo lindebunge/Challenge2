@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX CLOCK</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--Het lettertype-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+    <!--TweenMax importeren-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+    <!--countdown scripts van w3schools-->
+    <script src="js/timer.js"> </script>
+
+
+</head>
+
+<body>
+<div id="zwart">
+    <div id="dayPartText"></div>
+    <div id="info">The current date is:</div>
+</div>
+
+
+
+<!--de grid container voor het goed opmaken en responsive houden van de website-->
+<div class="grid-container">
+
+    <!--het spacex logo-->
+    <div id="spacex">SPACEX</div>
+
+    <!--de ontertitel-->
+    <div id="ondertitel">TIME INFORMATION PANEL</div>
+
+    <!--De countdown timer, alle getallen en letters zijn losse divs
+    zodat makkelijk de content aangepast kan worden door het script-->
+    <div class="voortgang">
+
+
+        <div class="countdown">
+            <div class="timer" id="daytext">
+            </div>
+        </div>
+
+
+
+        <div class="countdown">
+            <div class="timer" id="days">
+            </div>
+        </div>
+
+        <div class="countdown">
+            <div class="timer" id="months">
+            </div>
+        </div>
+
+        <div class="countdown">
+            <div class="timer" id="years">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="countdown">
+            <div class="timer" id="hours">
+
+            </div>
+            <div class="kopje">Hours</div>
+        </div>
+        <div class="countdown">
+            <div class="timer" id="minutes">
+
+            </div>
+            <div class="kopje">Minutes</div>
+        </div>
+        <div class="countdown">
+            <div class="timer" id="seconds">
+
+            </div>
+            <div class="kopje">Seconds</div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    var now = new Date();
+    var partOfDay = new Array();
+    partOfDay[0] = "night"
+    partOfDay[1] = "night"
+    partOfDay[2] = "night"
+    partOfDay[3] = "night"
+
+    document.getElementById("dayPartText").innerHTML = "Good " + partOfDay[Math.floor(now.getHours()/6)] + ", User";
+    document.body.style.backgroundImage = "url('images/" +partOfDay[Math.floor(now.getHours()/6)]+ ".jpg')";
+
+
+
+    TweenMax.from("#dayPartText", 2, {opacity: 0, delay:1 });
+    TweenMax.to("#dayPartText", 3, {y:170, delay:2, scale:2 });
+
+    TweenMax.from("#info", 3, {opacity:0, delay:6});
+    TweenMax.to("#info", 3, {y:300, scale:2, delay:5});
+
+    TweenMax.from("#daytext", 3, {ease:Elastic.easeOut.config(1, 0.3), y:-500, delay:8 });
+    TweenMax.from("#days", 3, {ease:Elastic.easeOut.config(1, 0.3), y:-500, delay:8.5});
+    TweenMax.from("#months", 3, {ease:Elastic.easeOut.config(1, 0.3), y:-500, delay:9});
+    TweenMax.from("#years", 3, {ease:Elastic.easeOut.config(1, 0.3), y:-500, delay: 9.5});
+
+    TweenMax.to("#zwart", 2, {opacity:0, delay: 13});
+</script>
+
+
+
+
+</html>

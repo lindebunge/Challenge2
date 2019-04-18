@@ -1,0 +1,167 @@
+
+/* Algemene CSS */
+
+/* De witte rand van de body weghalen en de font-family aanpassen*/
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    /*dit hieronder doet eigenlijk niks, staat er voor de zekerheid als de dagtijd niet gevonden kan worden*/
+    background-image: url("../images/mars.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+/*De zwarte achtergrond van de animatieintro*/
+#zwart {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: black
+}
+
+/*Welke dagdeel het is bij de animatie-intro*/
+#dayPartText {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    font-size: 120%;
+    top: -100px;
+}
+
+/*De ondertitel van de animatie-intro*/
+#info {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    font-size: 100%;
+    top: -100px;
+}
+
+/* de grid-container waar alle blokken inzitten */
+.grid-container {
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    grid-template-areas:
+            'titel1 titel2 titel3 titel4'
+            'ondertitel ondertitel ondertitel ondertitel'
+            'blok1 blok2 blok3 blok4'
+            'blok5 blok6 blok7 blok8'
+            'blok9 blok10 blok11 blok12'
+            'blok13 blok14 blok15 blok16'
+;
+}
+
+/*De tekst bij de klok en de agenda*/
+.kopje {
+    font-size: 150%;
+    font-weight: bolder;
+    text-align: center;
+}
+
+/*Het spaceX dikker en groter maken*/
+#spacex {
+    grid-column-start: titel1;
+    grid-column-end: titel4;
+    grid-row: titel1;
+
+    text-align: center;
+    padding-top: 5%;
+
+    font-size: 600%;
+    font-weight: bolder;
+}
+
+/*De ondertitel groter maken*/
+#ondertitel {
+    grid-column: ondertitel;
+    grid-row: ondertitel;
+
+    text-align: center;
+
+    font-size: 300%;
+}
+
+
+/*Extra ruimte tussen de countdown timer en de speed meter*/
+.voortgang{
+    grid-column-start: blok5;
+    grid-column-end: blok8;
+    grid-row: blok5;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.countdown {
+     float: left;
+    text-align: center;
+    width: 25%;
+ }
+
+/*De getallen in de klok en de kalender*/
+.timer{
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+
+
+
+
+/*desktop & tablet: ondertitel ernaast en de fontsizes laten kloppen*/
+@media only screen and (min-width: 900px) {
+    #spacex {
+        grid-column-start: titel1;
+        grid-column-end: titel2;
+        grid-row: titel1;
+
+        text-align: center;
+        padding-top: 5%;
+        padding-left: 15%;
+
+        font-size: 600%;
+        font-weight: bolder;
+    }
+
+    #ondertitel {
+        grid-column-start: titel3;
+        grid-column-end: titel4;
+        grid-row: titel1;
+
+        text-align: center;
+        padding-top: 5%;
+        padding-right: 15%;
+
+        font-size: 260%;
+    }
+}
+
+
+/*desktop: grote font zodat het niet superklein is */
+@media only screen and (min-width: 1000px) {
+    #dayPartText{
+        font-size: 300%;
+    }
+    #info {
+        font-size: 200%;
+    }
+
+    .timer, .kopje {
+        font-size: 250%;
+    }
+
+}
+
+/*kleine telefoons, maak de font nog kleiner omdat het anders niet past*/
+@media only screen and (max-width: 600px) {
+    .timer, .kopje {
+        font-size: 100%;
+    }
+}
+
